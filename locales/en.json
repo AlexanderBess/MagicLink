@@ -1,0 +1,28 @@
+{
+  "footer": {
+    "documentation": "Documentation"
+  },
+  "signUpOrIn": {
+    "haveAccount": "Already have an account?",
+    "userName": "User name",
+    "linkToProfile": "Link to profile",
+    "auth": "Authorization",
+    "email": "Email",
+    "password": "Password",
+    "passwordConfirm": "Repeat password",
+    "create": "Create account",
+    "login": "Login",
+    "termsConditions": "Terms and Conditions",
+    "privacyPolicy": "Privacy Policy",
+    "additionalInfoPartOne": "By clicking \"Register\" you agree to our",
+    "additionalInfoPartTwo": "and our"
+  },
+  "titles": {
+    "login": "Login",
+    "registration": "Registration"
+  },
+  "buttons": {
+    "enter": "Enter",
+    "register": "Register"
+  }
+}

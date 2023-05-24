@@ -1,0 +1,28 @@
+{
+  "footer": {
+    "documentation": "Документация"
+  },
+  "signUpOrIn": {
+    "haveAccount": "У вас уже есть аккаунт ?",
+    "userName": "Имя профиля",
+    "linkToProfile": "Ссылка на профиль",
+    "auth": "Авторизация",
+    "email": "Email",
+    "password": "Пароль",
+    "passwordConfirm": "Повторите пароль",
+    "create": "Создать аккаунт",
+    "login": "Вход",
+    "termsConditions": "Terms and Conditions",
+    "privacyPolicy": "Privacy Policy",
+    "additionalInfoPartOne": "By clicking \"Register\" you agree to our",
+    "additionalInfoPartTwo": "and our"
+  },
+  "titles": {
+    "login": "Вход в систему",
+    "registration": "Регистрация"
+  },
+  "buttons": {
+    "enter": "Ввод",
+    "register": "Зарегистрироваться"
+  }
+}

@@ -1,0 +1,83 @@
+
+export const Path = {
+  ROOT: '/',
+  SIGN_IN: '/sign-in',
+  SIGN_UP: '/sign-up',
+  MY_QUESTS: '/my',
+  WALLET: '/wallet',
+  REFERRAL: '/referral',
+  INSURING: '/insuring',
+  SAVINGS: '/savings',
+  CREDITING: '/crediting',
+  LENDING: '/lending',
+  MINING: '/mining',
+  BRIDGE: '/bridge',
+  SETTINGS: '/settings',
+  DISPUTES: '/disputes',
+  WORKERS: '/workers',
+  CREATE_QUEST: '/create-quest',
+  STAKING: '/staking',
+  PROFILE: '/profile',
+  ROLE: '/role',
+  QUESTS: '/quests',
+  MESSAGES: '/messages',
+  EDIT_QUEST: '/edit-quest',
+  COLLATERAL: '/collateral',
+  RAISED_VIEWS: '/raised-views',
+  NOTIFICATIONS: '/notifications',
+  RETIREMENT: '/retirement',
+  SUMSUB: '/sumsub',
+  REPORT: '/report',
+  AUCTION: '/auction',
+  BORROW: '/borrow',
+  QRCODE: '/qrcode',
+};
+
+export const RouterNames = {
+  ROOT: 'index',
+  SIGN_IN: 'sign-in',
+  SIGN_UP: 'sign-up',
+  RESTORE: 'restore',
+  ROLE: 'role',
+
+  CREDITING: 'crediting',
+  REFERRAL: 'referral',
+  REFERRAL_MY: 'referral-my',
+  RETIREMENT: 'retirement',
+  RETIREMENT_MY: 'retirement-my',
+  STAKING: 'staking',
+  STAKING_ID: 'staking-id',
+  INSURING: 'insuring',
+  INSURING_ID: 'insuring-id',
+  BRIDGE: 'bridge',
+  MINING: 'mining',
+  MINING_ID: 'mining-id',
+  LENDING: 'lending',
+  COLLATERAL: 'collateral',
+  AUCTION: 'auction',
+  SAVINGS: 'savings',
+  SAVINGS_ID: 'savings-id',
+  PROFILE_ID: 'profile-id',
+  QUESTS: 'quests',
+  QUESTS_ID: 'quests-id',
+  WORKERS: 'workers',
+  MESSAGES: 'messages',
+  MESSAGES_ID: 'messages-id',
+  CREATE_QUEST: 'create-quest',
+  DISPUTES: 'disputes',
+  DISPUTES_ID: 'disputes-id',
+};
+
+export const EntityType = {
+  USER: 'User',
+  QUEST: 'Quest',
+  DISCUSSION_COMMENT: 'DiscussionComment',
+};
+
+export const Layout = Object.freeze({
+  DEFAULT: 'default',
+  GUEST: 'guest', // has access to bridge and mining
+  AUTH: 'auth',
+  CONFIRM: 'confirm', // if mnemonic not decoded
+  ROLE: 'role',
+});

@@ -1,0 +1,10 @@
+@mixin content {
+  background: #4747471f;
+}
+@mixin content__block {
+  padding: 16px;
+  background: #FFFFFF;
+  border-radius: 8px;
+
+  max-width: 328px;
+}

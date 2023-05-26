@@ -1,4 +1,7 @@
 {
+  "general": {
+    "yes": "Да"
+  },
   "footer": {
     "documentation": "Документация"
   },
@@ -17,11 +20,34 @@
     "additionalInfoPartOne": "By clicking \"Register\" you agree to our",
     "additionalInfoPartTwo": "and our"
   },
+  "menu": {
+    "profile": "Профиль",
+    "link": "Ссылка",
+    "design": "Дизайн",
+    "share": "Поделиться",
+    "preview": "Посмотреть"
+  },
+  "profile": {
+    "name": "Имя профиля",
+    "shortDescription": "Краткое описание",
+    "description": "Описание",
+    "emptyDescription": "Описание не добавлено",
+    "showShortDesc": "Показывать краткое описание",
+    "nickName": "Псевдоним",
+    "activation": "Активация",
+    "settings": "Настройки аккаунта",
+    "delete": "Удалить аккаунт",
+    "active": "Профиль включен",
+    "settingsDescription": "Смена пароля и почты",
+    "deleteDescription": "Вы действительно хотите удалить вашу учетную запись?"
+  },
   "titles": {
     "login": "Вход в систему",
     "registration": "Регистрация"
   },
   "buttons": {
+    "edit": "Редактировать",
+    "delete": "Удалить",
     "enter": "Ввод",
     "register": "Зарегистрироваться"
   }

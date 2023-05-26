@@ -14,6 +14,7 @@
         </div>
       </div>
       <div class="template__content">
+        <HeaderMenu class="template__menu"/>
         <nuxt />
       </div>
       <div class="template__footer footer">
@@ -81,11 +82,24 @@ export default {
   }
   &__content {
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
-    padding: 16px 0 16px 0;
     @include content;
+  }
+  &__menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    margin-top: 4px;
+    gap: 24px;
+
+    height: 56px;
+    width: 100%;
+
+    background: #FFFFFF;
   }
   &__footer {
     display: flex;

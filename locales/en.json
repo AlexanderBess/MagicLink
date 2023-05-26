@@ -1,4 +1,7 @@
 {
+  "general": {
+    "yes": "Yes"
+  },
   "footer": {
     "documentation": "Documentation"
   },
@@ -17,11 +20,34 @@
     "additionalInfoPartOne": "By clicking \"Register\" you agree to our",
     "additionalInfoPartTwo": "and our"
   },
+  "menu": {
+    "profile": "Profile",
+    "link": "Link",
+    "design": "Design",
+    "share": "Share",
+    "preview": "Preview"
+  },
+  "profile": {
+    "name": "Profile Name",
+    "shortDescription": "Short description",
+    "description": "Description",
+    "emptyDescription": "Description not added",
+    "showShortDesc": "Show short description",
+    "nickName": "Nickname",
+    "activation": "Profile activation",
+    "settings": "Account settings",
+    "delete": "Delete account",
+    "active": "Profile enabled",
+    "settingsDescription": "Change password and mail",
+    "deleteDescription": "Are you sure you want to delete your account?"
+  },
   "titles": {
     "login": "Login",
     "registration": "Registration"
   },
   "buttons": {
+    "edit": "Edit",
+    "delete": "Delete",
     "enter": "Enter",
     "register": "Register"
   }

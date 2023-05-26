@@ -65,24 +65,24 @@ export default {
     postcss: null,
   },
   moment: {
-    defaultLocale: 'en',
-    locales: ['ru'],
+    defaultLocale: 'ru',
+    locales: ['ru']
   },
   i18n: {
     // locales: ['en', 'ru', 'bn', 'ar', 'fr', 'hi', 'id', 'pt', 'es', 'zh_cn'],
-    locales: ['en'],
-    defaultLocale: 'en',
+    locales: ['ru'],
+    defaultLocale: 'ru',
     strategy: 'no_prefix',
     vueI18n: {
       messages: {
         en: localeEn,
-        ru: localeRu,
-      },
+        ru: localeRu
+      }
     },
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
-      alwaysRedirect: true,
-    },
+      alwaysRedirect: true
+    }
   }
 };

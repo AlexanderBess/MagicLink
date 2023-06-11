@@ -18,7 +18,8 @@
     <base-btn
       class="edit-block__button"
       :mode="inputData.length > maxValue ? 'disabled' : 'active'"
-      :text="$tc('buttons.save')"/>
+      :text="$tc('buttons.save')"
+      @click="$emit('click', inputData)"/>
   </div>
 </template>
 
@@ -46,6 +47,10 @@ export default {
     maxValue: {
       type: Number,
       default: ''
+    },
+    action: {
+      type: Function,
+      default: () => {}
     }
   },
   methods: {

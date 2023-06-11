@@ -1,11 +1,37 @@
 <template>
   <div class="info-block">
-    <div class="info-block__title">{{ title }}</div>
-    <div class="info-block__data data">
+    <div class="info-block__head">
+      <div class="info-block__title">{{ title }}</div>
+      <div
+        v-if="isHaveMenu"
+        class="info-block__menu menu">
+        <img
+          class="menu__img"
+          src="~/assets/img/ui/menu.svg"
+          alt="menu"
+          @click="isShowMenu = !isShowMenu"/>
+        <div
+          v-show="isShowMenu"
+          class="menu__popup">
+          <div
+            v-for="(element, key) in menuActions"
+            :key="key"
+            class="popup__block"
+            :class="(key + 1) === menuActions.length ? 'popup__block_last' : ''">
+            <img
+              class="popup__img"
+              :src="element.img"
+              :alt="element.name"/>
+            <span class="popup__text">{{ element.name }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-if="isHaveSlot || data" class="info-block__data data">
       <div v-if="isHaveSlot" class="data__special">
         <slot/>
       </div>
-      <div v-else-if="data.value || data.description" class="data__first-value">
+      <div v-else-if="data && !isHaveSlot" class="data__first-value">
         <div
           v-if="data?.description"
           class="data__description">
@@ -31,7 +57,7 @@
     <base-btn
         :mode="btnData?.isRemoveBtn ? 'delete' : 'active'"
         @click="btnAction">
-      {{ btnData.caption }}
+      {{ btnData?.caption || '' }}
     </base-btn>
   </div>
 </template>
@@ -39,6 +65,21 @@
 <script>
 export default {
   name: "infoBlock",
+  data() {
+    return {
+      isShowMenu: false,
+      menuActions: [
+        {
+          img: require('~/assets/img/ui/edit.svg'),
+          name: 'Редактировать'
+        },
+        {
+          img: require('~/assets/img/ui/delete.svg'),
+          name: 'Удалить'
+        },
+      ]
+    }
+  },
   props: {
     title: {
       type: String,
@@ -53,6 +94,10 @@ export default {
       default: null
     },
     isHaveSlot: {
+      type: Boolean,
+      default: false
+    },
+    isHaveMenu: {
       type: Boolean,
       default: false
     }
@@ -79,14 +124,48 @@ export default {
     font-weight: 600;
     font-size: 20px;
     line-height: 23px;
-
-    padding-bottom: 16px;
-    border-bottom: 1px solid $grey2;
   }
   &__data {
     display: flex;
     flex-direction: column;
     gap: 16px;
+  }
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid $grey2;
+  }
+}
+.menu {
+  position: relative;
+  &__popup {
+    @include content__block;
+    padding: 8px 16px 8px 8px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+.popup {
+  &__block {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid $grey2;
+    &_last {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+  &__text {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: $title;
   }
 }
 .data {

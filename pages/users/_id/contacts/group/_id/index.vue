@@ -1,13 +1,23 @@
 <template>
-
+  <EditBlock
+    title="Создать группу"
+    label="Имя группы"
+    :max-value="50"
+    @click="saveGroupName"
+  />
 </template>
 
 <script>
 export default {
-  name: "index"
+  name: "groupContacts",
+  methods: {
+    saveGroupName(value) {
+      this.$store.dispatch('contacts/setGroupName', value);
+    }
+  }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

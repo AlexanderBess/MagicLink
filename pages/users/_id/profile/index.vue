@@ -1,13 +1,13 @@
 <template>
   <div class="profile">
-    <div class="profile__avatar">
-      <img src="~assets/img/app/avatar.png" alt="avatar">
-      <div class="profile__title">Name</div>
-      <div class="profile__link">Link</div>
-    </div>
+    <avatar
+      :path="''"
+      user-name="Марина"
+      link="link-test.com"/>
     <div class="profile__blocks">
       <InfoBlock
-        v-for="(blockData) in profileBlocks"
+        v-for="(blockData, key) in profileBlocks"
+        :key="key"
         :title="blockData.title"
         :data="blockData.data"
         :btn-data="blockData.dataBtn"/>
@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import { Path } from "~/utils/enums";
+
 export default {
   name: "profile",
   data() {
@@ -27,7 +29,8 @@ export default {
             value: 'Marina'
           },
           dataBtn: {
-            path: '/profile/name-edit'
+            path: Path.PROFILE_NAME,
+            caption: this.$t('buttons.edit')
           },
         },
         {
@@ -40,7 +43,8 @@ export default {
             secondValue: true ? this.$t('general.yes') : this.$t('general.no')
           },
           dataBtn: {
-            path: '/profile/description-edit'
+            path: Path.PROFILE_DESC,
+            caption: this.$t('buttons.edit')
           },
         },
         {
@@ -50,7 +54,8 @@ export default {
             valueType: 'link'
           },
           dataBtn: {
-            path: '/profile/nickName-edit'
+            path: Path.PROFILE_NICKNAME,
+            caption: this.$t('buttons.edit')
           },
         },
         {
@@ -59,7 +64,8 @@ export default {
             value: true ? this.$t('profile.active') : this.$t('profile.disable')
           },
           dataBtn: {
-            path: '/profile/activation-edit'
+            path: Path.PROFILE_ACTIVATION,
+            caption: this.$t('buttons.edit')
           },
         },
         {
@@ -68,7 +74,8 @@ export default {
             value: this.$t('profile.settingsDescription')
           },
           dataBtn: {
-            path: '/profile/settings-edit'
+            path: Path.PROFILE_SETTINGS,
+            caption: this.$t('buttons.edit')
           },
         },
         {
@@ -78,9 +85,10 @@ export default {
             valueType: 'delete'
           },
           dataBtn: {
-            path: '/profile/delete',
+            path: 'profile/delete',
+            caption: this.$t('buttons.delete'),
             isRemoveBtn: true
-          },
+          }
         }
       ]
     }
@@ -90,6 +98,7 @@ export default {
 
 <style lang="scss" scoped>
 .profile {
+  margin-top: 16px;
   padding-bottom: 40px;
   &__avatar {
     display: flex;

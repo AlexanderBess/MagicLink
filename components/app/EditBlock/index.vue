@@ -9,12 +9,15 @@
       <div class="head__title">{{ title }}</div>
     </div>
     <base-field
+      v-if="label"
       v-model="inputData"
       class="edit-block__firstInput"
-      label="test"
-      data-selector="FIRST-INPUT"/>
+      :label="label"
+      :max-value="maxValue ? maxValue : null"
+      :isHideError="true"/>
     <base-btn
       class="edit-block__button"
+      :mode="inputData.length > maxValue ? 'disabled' : 'active'"
       :text="$tc('buttons.save')"/>
   </div>
 </template>
@@ -30,6 +33,18 @@ export default {
   props: {
     title: {
       type: String,
+      default: ''
+    },
+    label: {
+      type: String,
+      default: ''
+    },
+    value: {
+      type: String,
+      default: ''
+    },
+    maxValue: {
+      type: Number,
       default: ''
     }
   },
@@ -57,7 +72,7 @@ export default {
     gap: 16px;
 
     padding-bottom: 16px;
-    border-bottom: 1px solid #D3D9E4;
+    border-bottom: 1px solid $grey2;
   }
 }
 .head {

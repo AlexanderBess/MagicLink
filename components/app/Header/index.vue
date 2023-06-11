@@ -1,7 +1,8 @@
 <template>
   <div class="menu">
     <nuxt-link
-        v-for="(link) in menuLinks"
+        v-for="(link, key) in menuLinks"
+        :key="key"
         class="menu__link-block"
         :to="link.path">
       <img :src="link.icon" :alt="link.name">
@@ -15,6 +16,8 @@
 </template>
 
 <script>
+import {Path} from "@/utils/enums";
+
 export default {
   name: "headerMenu",
   data() {
@@ -23,27 +26,27 @@ export default {
         profile: {
           name: this.$t('menu.profile'),
           icon: require('~/assets/img/ui/profile.svg'),
-          path: '/profile'
+          path: Path.PROFILE
         },
         link: {
           name: this.$t('menu.link'),
           icon: require('~/assets/img/ui/link.svg'),
-          path: '/link'
+          path: Path.CONTACTS
         },
         design: {
           name: this.$t('menu.design'),
           icon: require('~/assets/img/ui/design.svg'),
-          path: '/design'
+          path: Path.DESIGN
         },
         share: {
           name: this.$t('menu.share'),
           icon: require('~/assets/img/ui/share.svg'),
-          path: '/share'
+          path: Path.SHARE
         },
         preview: {
           name: this.$t('menu.preview'),
           icon: require('~/assets/img/ui/preview.svg'),
-          path: '/preview'
+          path: Path.PREVIEW
         }
       }
     };

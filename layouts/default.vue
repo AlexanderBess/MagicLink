@@ -4,17 +4,18 @@
       <div class="template__header header">
         <div class="header__container">
           <img
+            class="header__logo"
             src="~assets/img/app/logo.svg"
             alt="The Link">
-          <div
+          <nuxt-link
             class="header__title"
-            @click="toMain">
+            to="/">
             The Link
-          </div>
+          </nuxt-link>
         </div>
       </div>
       <div class="template__content">
-        <HeaderMenu class="template__menu"/>
+        <HeaderMenu v-if="showNavigation()" class="template__menu"/>
         <nuxt />
       </div>
       <div class="template__footer footer">
@@ -42,9 +43,9 @@ export default {
     };
   },
   methods: {
-    toMain() {
-      this.$router.push("/index");
-    },
+    showNavigation() {
+      return !(this.$route.name === 'index' || this.$route.name === 'sign-in' || this.$route.name === 'sign-up');
+    }
   },
 };
 </script>
@@ -73,8 +74,8 @@ export default {
     padding: 16px;
     gap: 4px;
 
-    background: #FFFFFF;
-    box-shadow: 0px 2px 8px rgba(2, 8, 12, 0.1);
+    background: $white;
+    box-shadow: 0 2px 8px rgba(2, 8, 12, 0.1);
 
     flex: none;
     order: 0;
@@ -113,6 +114,9 @@ export default {
 }
 
 .header {
+  &__logo {
+    cursor: pointer;
+  }
   &__container {
     display: flex;
     justify-content: space-between;
@@ -121,15 +125,9 @@ export default {
     font-weight: 700;
     font-size: 22px;
     line-height: 26px;
+    text-decoration: none;
 
     color: #0080D3;
-
-    flex: none;
-    order: 1;
-    flex-grow: 1;
-  }
-  &__title:hover {
-    color: #070707;
   }
 }
 .footer {

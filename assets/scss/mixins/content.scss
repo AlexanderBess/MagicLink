@@ -8,3 +8,8 @@
 
   max-width: 328px;
 }
+@mixin content__block_flex-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

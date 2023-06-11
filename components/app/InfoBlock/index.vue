@@ -2,7 +2,10 @@
   <div class="info-block">
     <div class="info-block__title">{{ title }}</div>
     <div class="info-block__data data">
-      <div class="data__first-value">
+      <div v-if="isHaveSlot" class="data__special">
+        <slot/>
+      </div>
+      <div v-else-if="data.value || data.description" class="data__first-value">
         <div
           v-if="data?.description"
           class="data__description">
@@ -25,12 +28,11 @@
         </div>
       </div>
     </div>
-    <nuxt-link
-        class="info-block__button"
-        :class="btnData?.isRemoveBtn ? 'info-block__button_remove' : ''"
-        :to="btnData.path">
-      {{ btnData?.isRemoveBtn ? $t('buttons.delete') : $t('buttons.edit') }}
-    </nuxt-link>
+    <base-btn
+        :mode="btnData?.isRemoveBtn ? 'delete' : 'active'"
+        @click="btnAction">
+      {{ btnData.caption }}
+    </base-btn>
   </div>
 </template>
 
@@ -49,6 +51,17 @@ export default {
     btnData: {
       type: Object,
       default: null
+    },
+    isHaveSlot: {
+      type: Boolean,
+      default: false
+    }
+  },
+  methods: {
+    btnAction() {
+      const { btnData, $router } = this;
+      if (btnData.path) { $router.push(btnData.path) }
+      else { btnData.action(); }
     }
   }
 }
@@ -58,6 +71,9 @@ export default {
 .info-block {
   min-width: 300px;
   @include content__block;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   &__title {
     color: $title;
     font-weight: 600;
@@ -65,35 +81,18 @@ export default {
     line-height: 23px;
 
     padding-bottom: 16px;
-    border-bottom: 1px solid #D3D9E4;
+    border-bottom: 1px solid $grey2;
   }
   &__data {
-    margin-top: 16px;
     display: flex;
     flex-direction: column;
     gap: 16px;
   }
-  &__button {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-top: 16px;
-    padding: 15px 45px;
-
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-
-    color: #FFFFFF;
-    background: $link;
-    border-radius: 8px;
-    &_remove {
-      background: $delete;
-    }
-  }
 }
 .data {
+  &__special {
+    @include content__block_flex-center;
+  }
   &__value {
     font-weight: 400;
     font-size: 16px;

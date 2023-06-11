@@ -2,15 +2,15 @@
   <div class="content content_sign-in">
     <p class="content__title">{{$t('titles.registration')}}</p>
     <div v-for="(inputData) in registryInputs">
-        <base-field
-            v-model="model[inputData.type]"
-            :ref="inputData.type"
-            :name="$tc(`signUpOrIn.` + inputData.type)"
-            :rules="inputData.rules"
-            :label="$tc(`signUpOrIn.` + inputData.type)"
-            mode="icon"
-            placeholder="-"
-            data-selector="inputData.dataSelector"/>
+      <base-field
+        v-model="model[inputData.type]"
+        :ref="inputData.type"
+        :name="$tc(`signUpOrIn.` + inputData.type)"
+        :rules="inputData.rules"
+        :label="$tc(`signUpOrIn.` + inputData.type)"
+        mode="icon"
+        placeholder="-"
+        data-selector="inputData.dataSelector"/>
     </div>
     <div class="content__info">
       {{$t('signUpOrIn.additionalInfoPartOne')}}
@@ -19,9 +19,8 @@
       <a>{{$t('signUpOrIn.privacyPolicy')}}</a>
     </div>
     <base-btn
-        class="content__btn"
-        data-selector="SIGN-IN-BTN"
-        @click="toProfile"
+      @click="toSignInFunc"
+      mode="active"
     >
       {{$t('buttons.enter')}}
     </base-btn>
@@ -37,10 +36,13 @@
 </template>
 
 <script>
+import { Path } from '~/utils/enums';
+
 export default {
   name: "signUp",
   data() {
     return {
+      toSignIn: Path.SIGN_IN,
       registryInputs: [
         {
           type: 'userName',
@@ -78,8 +80,8 @@ export default {
     };
   },
   methods: {
-    toProfile() {
-      this.$router.push("/profile");
+    toSignInFunc() {
+      this.$router.push(this.toSignIn);
     }
   }
 }
@@ -88,6 +90,7 @@ export default {
 <style lang="scss" scoped>
 .content {
   @include content__block;
+  margin: 16px 0 16px 0;
   &__title {
     color: $title;
     font-weight: 600;
@@ -95,10 +98,10 @@ export default {
     line-height: 23px;
 
     padding-bottom: 16px;
-    border-bottom: 1px solid #D3D9E4;
+    border-bottom: 1px solid $grey2;
   }
   &__info {
-    margin-top: 32px;
+    margin: 32px 0 16px 0;
 
     font-weight: 400;
     font-size: 12px;
@@ -109,9 +112,6 @@ export default {
   &__info-link {
     color: #0080D3;
     text-decoration-line: underline;
-  }
-  &__btn {
-    margin-top: 16px;
   }
   &__links {
     margin-top: 16px;

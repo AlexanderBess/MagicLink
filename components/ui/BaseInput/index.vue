@@ -52,7 +52,6 @@
         :class="[{'ctm-field__input_error': errors[0]},
                  {'ctm-field__input_padding-r' : $slots['right-absolute'] || (value && isSearch && !isBusySearch)}]"
         :placeholder="placeholder"
-        :data-selector="`BASE-INPUT-FIELD-${dataSelector.toUpperCase()}`"
         :value="mode === 'convertDate' ? convertDate(value) : value"
         :type="customType"
         :autocomplete="autocomplete"
@@ -64,9 +63,14 @@
         @blur="$emit('blur')"
       >
       <div
+        v-if="maxValue"
+        :class="value.length > maxValue ? 'ctm-field__counter_error' : ''"
+        class="ctm-field__counter">
+        {{value.length}}/{{maxValue}}
+      </div>
+      <div
         v-if="value && isSearch && !isBusySearch"
         class="ctm-field__clear"
-        :data-selector="`ACTION-BTN-CLEAR-${dataSelector.toUpperCase()}`"
         @click="clear()"
       >
         <span class="icon-close_small" />
@@ -175,15 +179,14 @@ export default {
       type: String,
       default: 'aggressive',
     },
-    dataSelector: {
-      type: String,
-      default: 'NON_SELECTOR',
-      required: true,
-    },
     tooltip: {
       type: String,
       default: '',
     },
+    maxValue: {
+      type: Number,
+      default: null
+    }
   },
   computed: {
     customType() {
@@ -280,7 +283,6 @@ export default {
     background-color: #7c838d;
     color: #fff;
     text-align: center;
-    padding: 5px 0;
     border-radius: 6px;
     position: absolute;
     top: -43px;
@@ -333,8 +335,10 @@ export default {
   }
   &__body {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-end;
     position: relative;
+    gap: 8px;
     width: 100%;
   }
   &__header {
@@ -384,6 +388,15 @@ export default {
     }
     &_padding-r {
       padding-right: 50px !important;
+    }
+  }
+  &__counter {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #7E868B;
+    &_error {
+      color: $delete;
     }
   }
   &_disabled {

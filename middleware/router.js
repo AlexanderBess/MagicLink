@@ -2,9 +2,7 @@ import { RouterNames } from '~/utils/enums';
 
 const notAvailableRoutes = [
   RouterNames.SIGN_IN,
-  RouterNames.ROLE,
   RouterNames.SIGN_UP,
-  RouterNames.RESTORE,
   RouterNames.ROOT,
 ];
 

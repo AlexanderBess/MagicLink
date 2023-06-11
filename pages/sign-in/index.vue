@@ -1,5 +1,5 @@
 <template>
-  <div class="content content_sign-in">
+  <div class="content">
     <p class="content__title">{{$tc('titles.login')}}</p>
     <base-field
       v-model="email"
@@ -20,31 +20,32 @@
         data-selector="FIRST_NAME"
         label="signUpOrIn.password"/>
     <base-btn
-        class="raise__submit"
-        data-selector="SIGN-IN-BTN"
-        @click="toProfile"
-    >
-      Ввод
+        mode="active"
+        @click="toProfile">
+      Войти
     </base-btn>
     <div class="content__links">
-      <nuxt-link to="">Забыли пароль ?</nuxt-link>
-      <nuxt-link to="/sign-up">Зарегистрироваться</nuxt-link>
+      <base-btn nuxt-link="/">Забыли пароль ?</base-btn>
+      <base-btn :nuxt-link="toSignUp">Зарегистрироваться</base-btn>
     </div>
   </div>
 </template>
 
 <script>
+import { Path } from "~/utils/enums";
+
 export default {
   name: "signIn",
   data() {
     return {
+      toSignUp: Path.SIGN_UP,
       password: '',
       email: ''
     };
   },
   methods: {
     toProfile() {
-      this.$router.push("/profile");
+      this.$router.push(`/users/1/${Path.PROFILE}`);
     }
   }
 }
@@ -53,6 +54,7 @@ export default {
 <style lang="scss" scoped>
   .content {
     @include content__block;
+    margin-top: 16px;
     &__title {
       color: $title;
       font-weight: 600;
@@ -60,7 +62,7 @@ export default {
       line-height: 23px;
 
       padding-bottom: 16px;
-      border-bottom: 1px solid #D3D9E4;
+      border-bottom: 1px solid $grey2;
     }
     &__links {
       margin-top: 16px;

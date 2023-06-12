@@ -15,11 +15,29 @@
           :title="contactData.name"
           :btn-data="btnData"
           :is-have-menu="true"
-          class="contacts__contact contact">
+          :is-have-slot="true"
+          class="contacts__contact">
         <div
           v-if="contactData.links.length > 0"
           class="contact">
-          {{ contactData.links[0].name }}
+          <div
+            v-for="(value, id) in contactData.links"
+            :key="id"
+            class="contact__block">
+            <div class="contact__head">
+              <span class="contact__title">{{ value.name }}</span>
+              <OptionalMenu :menu-actions="menuActions"/>
+            </div>
+            <div class="contact__body">
+              <img
+                class="contact__img"
+                :src="value.img"
+                :alt="value.name"/>
+              <a
+                class="contact__value"
+                :href="`tel:${value.value}`">{{ value.value }}</a>
+            </div>
+          </div>
         </div>
       </InfoBlock>
       <base-btn
@@ -38,9 +56,25 @@ export default {
   data() {
     return {
       btnData: {
-        path: Path.CONTACTS_CONTACT,
+        path: `${Path.CONTACTS_CONTACT}/1`,
         caption: 'Добавить ссылку'
-      }
+      },
+      menuActions: [
+        {
+          img: require('~/assets/img/ui/edit.svg'),
+          name: 'Редактировать',
+          click: (event) => {
+            console.log('redact: '+ event);
+          }
+        },
+        {
+          img: require('~/assets/img/ui/delete.svg'),
+          name: 'Удалить',
+          click: (event) => {
+            console.log('delete: '+ event);
+          }
+        },
+      ]
     }
   },
   computed: {
@@ -62,5 +96,32 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+.contact {
+  width: 100%;
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 1px solid $grey2;
+    border-radius: 8px;
+    padding: 16px;
+  }
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid $grey2;
+  }
+  &__title {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+  }
+  &__body {
+    display: flex;
+    gap: 8px;
+  }
 }
 </style>

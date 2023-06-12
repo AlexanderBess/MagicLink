@@ -8,6 +8,7 @@
         @click="goBack()">
       <div class="head__title">{{ title }}</div>
     </div>
+    <slot v-if="isHaveSlot"/>
     <base-field
       v-if="label"
       v-model="inputData"
@@ -16,6 +17,7 @@
       :max-value="maxValue ? maxValue : null"
       :isHideError="true"/>
     <base-btn
+      v-if="isShowBtn"
       class="edit-block__button"
       :mode="inputData.length > maxValue ? 'disabled' : 'active'"
       :text="$tc('buttons.save')"
@@ -46,11 +48,19 @@ export default {
     },
     maxValue: {
       type: Number,
-      default: ''
+      default: null
     },
     action: {
       type: Function,
       default: () => {}
+    },
+    isHaveSlot: {
+      type: Boolean,
+      default: false
+    },
+    isShowBtn: {
+      type: Boolean,
+      default: true
     }
   },
   methods: {

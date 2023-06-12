@@ -4,6 +4,7 @@ import Header from '~/components/app/Header';
 import InfoBlock from '~/components/app/InfoBlock';
 import EditBlock from '~/components/app/EditBlock';
 import Avatar from '~/components/app/Avatar';
+import OptionalMenu from '~/components/app/OptionalMenu';
 import BaseInput from '~/components/ui/BaseInput';
 import BaseButton from '~/components/ui/BaseButton';
 
@@ -13,6 +14,7 @@ Vue.component('HeaderMenu', Header);
 Vue.component('InfoBlock', InfoBlock);
 Vue.component('EditBlock', EditBlock);
 Vue.component('Avatar', Avatar);
+Vue.component('OptionalMenu', OptionalMenu);
 Vue.component('base-field', BaseInput);
 Vue.component('base-btn', BaseButton);
 

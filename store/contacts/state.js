@@ -1,11 +1,14 @@
 export default () => ({
     contactsData: [
         {
+            id: 0,
             name: 'Test',
             links: [
                 {
+                    id: 0,
                     name: 'Call',
-                    value: '89134519575',
+                    img: require('~/assets/img/ui/phoneActive.svg'),
+                    value: '89112219595',
                     active: true
                 }
             ]

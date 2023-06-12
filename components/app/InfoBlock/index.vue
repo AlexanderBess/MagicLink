@@ -2,30 +2,9 @@
   <div class="info-block">
     <div class="info-block__head">
       <div class="info-block__title">{{ title }}</div>
-      <div
+      <OptionalMenu
         v-if="isHaveMenu"
-        class="info-block__menu menu">
-        <img
-          class="menu__img"
-          src="~/assets/img/ui/menu.svg"
-          alt="menu"
-          @click="isShowMenu = !isShowMenu"/>
-        <div
-          v-show="isShowMenu"
-          class="menu__popup">
-          <div
-            v-for="(element, key) in menuActions"
-            :key="key"
-            class="popup__block"
-            :class="(key + 1) === menuActions.length ? 'popup__block_last' : ''">
-            <img
-              class="popup__img"
-              :src="element.img"
-              :alt="element.name"/>
-            <span class="popup__text">{{ element.name }}</span>
-          </div>
-        </div>
-      </div>
+        :menu-actions="menuActions"/>
     </div>
     <div v-if="isHaveSlot || data" class="info-block__data data">
       <div v-if="isHaveSlot" class="data__special">
@@ -55,6 +34,7 @@
       </div>
     </div>
     <base-btn
+        v-if="btnData"
         :mode="btnData?.isRemoveBtn ? 'delete' : 'active'"
         @click="btnAction">
       {{ btnData?.caption || '' }}
@@ -67,15 +47,20 @@ export default {
   name: "infoBlock",
   data() {
     return {
-      isShowMenu: false,
       menuActions: [
         {
           img: require('~/assets/img/ui/edit.svg'),
-          name: 'Редактировать'
+          name: 'Редактировать',
+          click: (event) => {
+            console.log('redact: '+ event);
+          }
         },
         {
           img: require('~/assets/img/ui/delete.svg'),
-          name: 'Удалить'
+          name: 'Удалить',
+          click: (event) => {
+            console.log('delete: '+ event);
+          }
         },
       ]
     }

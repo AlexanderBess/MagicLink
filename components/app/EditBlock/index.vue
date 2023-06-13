@@ -21,7 +21,7 @@
       class="edit-block__button"
       :mode="inputData.length > maxValue ? 'disabled' : 'active'"
       :text="$tc('buttons.save')"
-      @click="$emit('click', inputData)"/>
+      @click="buttonClick"/>
   </div>
 </template>
 
@@ -66,6 +66,9 @@ export default {
   methods: {
     goBack() {
       this.$router.go(-1);
+    },
+    buttonClick() {
+      this.$emit('click', this.inputData);
     }
   }
 }
@@ -78,7 +81,6 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  min-width: 300px;
 
   @include content__block;
   &__head {

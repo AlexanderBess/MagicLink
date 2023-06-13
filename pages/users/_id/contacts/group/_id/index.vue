@@ -8,11 +8,15 @@
 </template>
 
 <script>
+import { Path } from "~/utils/enums";
+
 export default {
   name: "groupContacts",
   methods: {
     saveGroupName(value) {
-      this.$store.dispatch('contacts/setGroupName', value);
+      this.$store.dispatch('contacts/setGroupName', value).then(() => {
+        this.$router.go(-1);
+      });
     }
   }
 }

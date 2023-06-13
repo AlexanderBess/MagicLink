@@ -17,6 +17,7 @@
     "cross-env": "^7.0.3",
     "nuxt": "^2.14.12",
     "nuxt-i18n": "^6.13.12",
+    "one-colorpicker": "^1.0.12",
     "vee-validate": "^3.3.9",
     "vue": "^2.6.12",
     "vue-click-outside": "^1.1.0",

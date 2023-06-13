@@ -57,11 +57,11 @@ export default {
 
 <style lang="scss" scoped>
 .preview {
-  min-width: 320px;
   display: flex;
   flex-direction: column;
   gap: 16px;
   margin-top: 16px;
+  width: 328px;
   &__links-block {
     display: flex;
     flex-direction: column;

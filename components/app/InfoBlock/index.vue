@@ -99,7 +99,6 @@ export default {
 
 <style lang="scss" scoped>
 .info-block {
-  min-width: 300px;
   @include content__block;
   display: flex;
   flex-direction: column;

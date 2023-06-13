@@ -8,6 +8,7 @@ import OptionalMenu from '~/components/app/OptionalMenu';
 import BaseInput from '~/components/ui/BaseInput';
 import BaseButton from '~/components/ui/BaseButton';
 
+import { ColorPicker, ColorPanel } from 'one-colorpicker';
 import VuePhoneNumberInput from 'vue-phone-number-input';
 
 Vue.component('HeaderMenu', Header);
@@ -19,3 +20,5 @@ Vue.component('base-field', BaseInput);
 Vue.component('base-btn', BaseButton);
 
 Vue.component('vue-phone-number-input', VuePhoneNumberInput);
+Vue.component('color-picker', ColorPicker);
+Vue.component('color-panel', ColorPanel);

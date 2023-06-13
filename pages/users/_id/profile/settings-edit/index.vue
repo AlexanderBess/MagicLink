@@ -24,8 +24,8 @@ export default {
   name: "settingsEdit",
   data() {
     return {
-      toPassChange: `users/1${Path.PROFILE_SETTINGS_PASS}`,
-      toEmailChange: `users/1${Path.PROFILE_SETTINGS_EMAIL}`
+      toPassChange: Path.PROFILE_SETTINGS_PASS,
+      toEmailChange: Path.PROFILE_SETTINGS_EMAIL
     }
   }
 }

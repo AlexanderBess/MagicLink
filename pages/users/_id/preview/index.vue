@@ -32,11 +32,11 @@ export default {
           data: [
             {
               img: require('assets/img/ui/mailActive.svg'),
-              caption: 'Написать на почту'
+              caption: this.$t('connectTypes.email')
             },
             {
               img: require('assets/img/ui/phoneActive.svg'),
-              caption: 'Позвонить'
+              caption: this.$t('connectTypes.phone')
             }
           ]
         },
@@ -45,7 +45,7 @@ export default {
           data: [
             {
               img: require('assets/img/ui/smsActive.svg'),
-              caption: 'Написать SMS'
+              caption: this.$t('connectTypes.sms')
             }
           ]
         }

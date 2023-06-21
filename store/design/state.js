@@ -2,79 +2,79 @@ export default () => ({
     designData: [
         {
             id: 0,
-            title: 'Цвет фона',
+            title: this.$t('design.backgroundColor.title'),
             data: [
                 {
                     id: 0,
                     color: '',
                     colorLabel: '',
-                    colorName: 'По умолчанию'
+                    colorName: this.$t('general.onDefault')
                 }
             ]
         },
         {
             id: 1,
-            title: 'Цвет текста',
+            title: this.$t('design.textColor.title'),
             data: [
                 {
                     id: 1,
                     color: '',
-                    colorLabel: 'Выберите цвет имени профиля',
-                    colorName: 'По умолчанию'
+                    colorLabel: this.$t('design.textColor.label'),
+                    colorName: this.$t('general.onDefault')
                 }
             ]
         },
         {
             id: 2,
-            title: 'Цвет краткого описания',
+            title: this.$t('design.shortDescColor.title'),
             data: [
                 {
                     id: 2,
                     color: '',
                     colorLabel: '',
-                    colorName: 'По умолчанию'
+                    colorName: this.$t('general.onDefault')
                 }
             ]
         },
         {
             id: 3,
-            title: 'Группа ссылок',
+            title: this.$t('design.linksGroup.title'),
             data: [
                 {
                     id: 3,
                     color: '',
-                    colorLabel: 'Цвет текста',
-                    colorName: 'По умолчанию'
+                    colorLabel: this.$t('design.linksGroup.label'),
+                    colorName: this.$t('general.onDefault')
                 },
                 {
                     id: 4,
                     color: '',
-                    colorLabel: 'Цвет границы',
-                    colorName: 'По умолчанию'
+                    colorLabel: this.$t('design.linksGroup.label1'),
+                    colorName: this.$t('general.onDefault')
                 }
             ]
         },
         {
             id: 4,
-            title: 'Ссылки',
+            title: this.$t('design.links.title'),
             data: [
                 {
                     id: 5,
                     color: '',
-                    colorLabel: 'Цвет текста',
-                    colorName: 'По умолчанию'
+                    colorLabel: this.$t('design.links.label'),
+                    colorName: this.$t('general.onDefault')
                 },
                 {
                     id: 6,
                     color: '',
-                    colorLabel: 'Цвет иконки',
-                    colorName: 'По умолчанию'
+                    colorLabel: this.$t('design.links.label1'),
+                    colorName: this.$t('general.onDefault')
                 },
                 {
                     id: 7,
                     color: '',
-                    colorLabel: 'Цвет фона',
-                    colorName: 'По умолчанию'
+                    colorLabel: this.$t('design.links.label2'),
+                    colorName: this.$t('general.onDefault')
                 }
             ]
         },

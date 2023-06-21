@@ -3,14 +3,14 @@
     <div class="content__block">
       <img class="content__logo" src="~/assets/img/app/logo.svg" alt="logo">
       <span class="content__text content__text_big">
-        <span class="content__text content__text_big content__text_link">The Link</span> это простой и удобный способ создать страницу для всех ссылок
+        <span class="content__text content__text_big content__text_link">The Link</span>&nbsp;{{ $tc('index.description') }}
       </span>
       <base-btn
         @click="toSignUp"
-        mode="active">Зарегистрироваться</base-btn>
+        mode="active">{{ $tc('signUpOrIn.signUp') }}</base-btn>
       <base-btn
         @click="toSignIn"
-        mode="active">Войти</base-btn>
+        mode="active">{{ $tc('signUpOrIn.signIn') }}</base-btn>
     </div>
     <div class="content__block content__block_descriptions">
       <div
@@ -34,27 +34,27 @@ export default {
         {
           src: require('~/assets/img/ui/profileActive.svg'),
           name: 'profile',
-          description: 'Доступ к вашей личной визитке'
+          description: this.$t('index.profileDesc')
         },
         {
           src: require('~/assets/img/ui/linkActive.svg'),
           name: 'link',
-          description: 'Создайте столько ссылок, сколько захотите'
+          description: this.$t('index.linkDesc')
         },
         {
           src: require('~/assets/img/ui/groupActive.svg'),
           name: 'group',
-          description: 'Организуйте свои ссылки по группам для удобства'
+          description: this.$t('index.groupDesc')
         },
         {
           src: require('~/assets/img/ui/designActive.svg'),
           name: 'design',
-          description: 'Создайте страницу, которая отражает ваш стиль'
+          description: this.$t('index.designDesc')
         },
         {
           src: require('~/assets/img/ui/previewActive.svg'),
           name: 'share',
-          description: 'Легко делитесь своим профилем со своими сетями'
+          description: this.$t('index.shareDesc')
         }
       ]
     }

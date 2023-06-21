@@ -24,7 +24,7 @@ export default {
     return {
       profileBlocks: [
         {
-          title: this.$t('profile.name'),
+          title: this.$t('profile.profileName'),
           data: {
             value: 'Marina'
           },

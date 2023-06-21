@@ -1,7 +1,7 @@
 <template>
   <EditBlock
       :title="$tc('profile.nickname')"
-      :max-value="100"
+      :checkbox-label="$tc('editBlock.activatedProfile')"
       :value="'Марина'"/>
 </template>
 

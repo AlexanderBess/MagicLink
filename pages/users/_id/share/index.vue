@@ -1,9 +1,9 @@
 <template>
   <div class="content__share">
     <InfoBlock
-      title="Моя ссылка для обмена"
+      :title="$tc('share.title')"
       :btn-data="{
-        caption: 'Скопировать ссылку',
+        caption: $tc('buttons.copyLink'),
         action: copyToClipboard
       }"
       :is-have-slot="true">

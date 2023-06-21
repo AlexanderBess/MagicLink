@@ -1,7 +1,7 @@
 <template>
   <EditBlock
-      :title="$tc('profile.nickname')"
-      :label="$tc('profile.nickname')"
+      :title="$tc('profile.nickName')"
+      :label="$tc('profile.nickName')"
       :max-value="100"
       :value="'Марина'"/>
 </template>

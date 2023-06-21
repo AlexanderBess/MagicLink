@@ -1,6 +1,7 @@
 {
   "general": {
-    "yes": "Да"
+    "yes": "Да",
+    "onDefault": "По умолчанию"
   },
   "footer": {
     "documentation": "Документация"
@@ -18,7 +19,10 @@
     "termsConditions": "Terms and Conditions",
     "privacyPolicy": "Privacy Policy",
     "additionalInfoPartOne": "By clicking \"Register\" you agree to our",
-    "additionalInfoPartTwo": "and our"
+    "additionalInfoPartTwo": "and our",
+    "forgetPass": "Забыли пароль ?",
+    "signUp": "Зарегистрироваться",
+    "signIn": "Войти"
   },
   "menu": {
     "profile": "Профиль",
@@ -28,7 +32,9 @@
     "preview": "Посмотреть"
   },
   "profile": {
-    "name": "Имя профиля",
+    "profileName": "Имя профиля",
+    "nameEdit": "Изменить имя",
+    "name": "Имя",
     "shortDescription": "Краткое описание",
     "description": "Описание",
     "emptyDescription": "Описание не добавлено",
@@ -41,14 +47,65 @@
     "settingsDescription": "Смена пароля и почты",
     "deleteDescription": "Вы действительно хотите удалить вашу учетную запись?"
   },
+  "share": {
+    "title": "Моя ссылка для обмена"
+  },
+  "connectTypes": {
+    "email": "Написать на почту",
+    "phone": "Позвонить",
+    "sms": "Написать SMS"
+  },
+  "design": {
+    "backgroundColor": {
+      "title": "Цвет фона"
+    },
+    "textColor": {
+      "title": "Цвет текста",
+      "label": "Выберите цвет имени профиля"
+    },
+    "shortDescColor": {
+      "title": "Цвет краткого содержания"
+    },
+    "linksGroup": {
+      "title": "Группа ссылок",
+      "label": "Цвет текста",
+      "label1": "Цвет границы"
+    },
+    "links": {
+      "title": "Ссылки",
+      "label": "Цвет текста",
+      "label1": "Цвет иконки",
+      "label2": "Цвет фона"
+    }
+  },
+  "contacts": {
+
+  },
+  "index": {
+    "description": "это простой и удобный способ создать страницу для всех ссылок",
+    "profileDesc": "Доступ к вашей личной визитке",
+    "linkDesc": "Создайте столько ссылок, сколько захотите",
+    "groupDesc": "Организуйте свои ссылки по группам для удобства",
+    "designDesc": "Создайте страницу, которая отражает ваш стиль",
+    "shareDesc": "Легко делитесь своим профилем со своими сетями"
+  },
   "titles": {
     "login": "Вход в систему",
     "registration": "Регистрация"
   },
   "buttons": {
     "edit": "Редактировать",
+    "save": "Сохранить",
     "delete": "Удалить",
     "enter": "Ввод",
-    "register": "Зарегистрироваться"
+    "register": "Зарегистрироваться",
+    "copyLink": "Скопировать ссылку",
+    "add": "Добавить",
+    "createNewGroup": "Создать новую группу",
+    "addLink": "Добавить ссылку"
+  },
+  "editBlock": {
+    "activatedProfile": "Активировать профиль",
+    "showShortDescription": "Показывать краткое описание"
   }
 }

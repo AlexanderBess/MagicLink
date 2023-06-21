@@ -25,8 +25,8 @@
       Войти
     </base-btn>
     <div class="content__links">
-      <base-btn nuxt-link="/">Забыли пароль ?</base-btn>
-      <base-btn :nuxt-link="toSignUp">Зарегистрироваться</base-btn>
+      <base-btn nuxt-link="/">{{ $tc('signUpOrIn.forgetPass') }}</base-btn>
+      <base-btn :nuxt-link="toSignUp">{{ $tc('signUpOrIn.signUp') }}</base-btn>
     </div>
   </div>
 </template>

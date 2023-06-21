@@ -1,19 +1,19 @@
 <template>
   <div class="settings">
-  <InfoBlock
-    :title="$tc('profile.mail')"
-    :data="{value: 'somemail@mail.com'}"
-    :btn-data="{
-     path: toEmailChange,
-     caption: $t('buttons.edit')
-    }"/>
-  <InfoBlock
-    :title="$tc('profile.password')"
-    :data="{value: '****************'}"
-    :btn-data="{
-      path: toPassChange,
-      caption: $t('buttons.edit')
-    }"/>
+    <InfoBlock
+      :title="$tc('profile.mail')"
+      :data="{value: 'somemail@mail.com'}"
+      :btn-data="{
+        path: toEmailChange,
+        caption: $t('buttons.edit')
+      }"/>
+    <InfoBlock
+      :title="$tc('profile.password')"
+      :data="{value: '****************'}"
+      :btn-data="{
+        path: toPassChange,
+        caption: $t('buttons.edit')
+      }"/>
   </div>
 </template>
 

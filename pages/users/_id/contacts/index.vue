@@ -5,7 +5,7 @@
         :title="'Ссылка'"
         :btn-data="{
           action: toGroupCreate,
-          caption: 'Добавить'
+          caption: $tc('buttons.add')
         }"/>
     </template>
     <template v-else>
@@ -42,7 +42,7 @@
       </InfoBlock>
       <base-btn
         @click="toGroupCreate"
-        mode="active">Создать новую группу</base-btn>
+        mode="active">{{ $tc('buttons.createNewGroup') }}</base-btn>
     </template>
   </div>
 </template>
@@ -57,19 +57,19 @@ export default {
     return {
       btnData: {
         path: `${Path.CONTACTS_CONTACT}/1`,
-        caption: 'Добавить ссылку'
+        caption: this.$t('buttons.addLink')
       },
       menuActions: [
         {
           img: require('~/assets/img/ui/edit.svg'),
-          name: 'Редактировать',
+          name: this.$t('buttons.edit'),
           click: (event) => {
-            console.log('redact: '+ event);
+            console.log('edit: '+ event);
           }
         },
         {
           img: require('~/assets/img/ui/delete.svg'),
-          name: 'Удалить',
+          name: this.$t('buttons.delete'),
           click: (event) => {
             console.log('delete: '+ event);
           }

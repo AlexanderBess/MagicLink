@@ -10,12 +10,22 @@
     </div>
     <slot v-if="isHaveSlot"/>
     <base-field
-      v-if="label"
+      v-if="maxValue"
       v-model="inputData"
       class="edit-block__firstInput"
       :label="label"
       :max-value="maxValue ? maxValue : null"
       :isHideError="true"/>
+    <div
+      v-if="checkboxLabel"
+      class="edit-block__checkbox-block">
+      <span class="checkbox-block__text">{{ checkboxLabel }}</span>
+      <input
+          id="input-checkbox"
+          class="checkbox-block__checkbox"
+          type="checkbox"/>
+      <label class="checkbox-block__label" for="input-checkbox"></label>
+    </div>
     <base-btn
       v-if="isShowBtn"
       class="edit-block__button"
@@ -49,6 +59,10 @@ export default {
     maxValue: {
       type: Number,
       default: null
+    },
+    checkboxLabel: {
+      type: String,
+      default: ''
     },
     action: {
       type: Function,
@@ -91,6 +105,11 @@ export default {
     padding-bottom: 16px;
     border-bottom: 1px solid $grey2;
   }
+  &__checkbox-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 .head {
   &__img {
@@ -101,6 +120,44 @@ export default {
     font-weight: 600;
     font-size: 20px;
     line-height: 23px;
+  }
+}
+.checkbox-block {
+  &__checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+  &__checkbox+label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #adb5bd;
+    border-radius: 0.25em;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  &__checkbox:checked+label::before {
+    border-color: #0b76ef;
+    background-color: #0b76ef;
+    background-image: url("~/assets/img/ui/check.svg");
+  }
+  &__checkbox:disabled+label::before {
+    background-color: #e9ecef;
+  }
+  &__label {
+    margin-bottom: 0;
+    height: 20px;
+  }
+  &__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: $grey3;
   }
 }
 </style>

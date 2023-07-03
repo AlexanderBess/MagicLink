@@ -28,3 +28,6 @@ export const RouterNames = {
   SHARE: 'share',
   DESIGN: 'design'
 };
+
+export const accessLifetime = 60 * 60 * 24;
+export const refreshLifetime = 60 * 60 * 24 * 7;

@@ -2,8 +2,8 @@
   <div class="profile">
     <avatar
       :path="''"
-      user-name="Марина"
-      link="link-test.com"/>
+      :user-name="userData.name"
+      :link="`${userData.alias}/profile`"/>
     <div class="profile__blocks">
       <InfoBlock
         v-for="(blockData, key) in profileBlocks"
@@ -17,9 +17,11 @@
 
 <script>
 import { Path } from "~/utils/enums";
+import {mapGetters} from "vuex";
 
 export default {
   name: "profile",
+  middleware: 'auth',
   data() {
     return {
       profileBlocks: [
@@ -90,8 +92,25 @@ export default {
             isRemoveBtn: true
           }
         }
-      ]
+      ],
+      userData: {}
     }
+  },
+  computed: {
+    ...mapGetters({
+      myData: "user/myData"
+    })
+  },
+  created() {
+    if (!this.$cookies.get('access')) {
+      this.$router.push(Path.ROOT);
+    }
+  },
+  async mounted() {
+    if (!this.myData.name) {
+      await this.$store.dispatch('user/getMyData');
+    }
+    this.userData = JSON.parse(JSON.stringify(this.myData));
   }
 }
 </script>

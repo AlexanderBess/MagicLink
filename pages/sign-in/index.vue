@@ -33,6 +33,7 @@
 
 <script>
 import { Path } from "~/utils/enums";
+import {mapGetters} from "vuex";
 
 export default {
   name: "signIn",
@@ -43,9 +44,25 @@ export default {
       email: ''
     };
   },
+  computed: {
+    ...mapGetters({
+      myData: 'user/myData'
+    })
+  },
   methods: {
-    toProfile() {
-      this.$router.push(`/users/1/${Path.PROFILE}`);
+    async toProfile() {
+      const response = await this.$store.dispatch('user/login', {
+        params: {
+          email: this.email.trim(),
+          password: this.password
+        }
+      });
+      if (response) {
+        await this.$router.push(`/users/${this.myData.alias}/${Path.PROFILE}`);
+      } else {
+        console.log('bad login data')
+      }
+
     }
   }
 }

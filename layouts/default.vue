@@ -16,6 +16,9 @@
       </div>
       <div class="template__content">
         <HeaderMenu v-if="showNavigation()" class="template__menu"/>
+        <Notification
+          v-show="notificationStatus"
+          :mode="notificationStatus"/>
         <nuxt />
       </div>
       <div class="template__footer footer">
@@ -23,24 +26,31 @@
           The Link
         </div>
         <div class="footer__title">
-          Документация
+          {{ $tc('footer.documentation') }}
         </div>
         <div class="footer__text-block">
-          <a>Официальные уведомления</a>
-          <a>Условия использования</a>
-          <a>Политика конфиденциальности</a>
-          <a>Политика в отношении файлов Cookie</a>
+          <a>{{ $tc('footer.officialNotifications') }}</a>
+          <a>{{ $tc('footer.useRules') }}</a>
+          <a>{{ $tc('footer.confidPolitic') }}</a>
+          <a>{{ $tc('footer.cookiePolitic') }}</a>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   data() {
     return {
       choosenBlock: 'Home',
     };
+  },
+  computed: {
+    ...mapGetters({
+      notificationStatus: 'notification/getStatus'
+    })
   },
   methods: {
     showNavigation() {

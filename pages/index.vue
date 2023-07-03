@@ -25,6 +25,7 @@
 </template>
 <script>
 import { Path } from "~/utils/enums";
+import {mapGetters} from "vuex";
 
 export default {
   name: 'Main',
@@ -57,6 +58,17 @@ export default {
           description: this.$t('index.shareDesc')
         }
       ]
+    }
+  },
+  computed: {
+    ...mapGetters ({
+      isAuth: 'user/isAuth'
+    })
+  },
+  async mounted() {
+    if (this.isAuth) {
+      const userData = await this.$store.dispatch('user/getMyData');
+      await this.$router.push(`users/${userData.alias}/${Path.PROFILE}`);
     }
   },
   methods: {

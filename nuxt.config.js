@@ -1,5 +1,6 @@
 import localeEn from './locales/en.json';
 import localeRu from './locales/ru.json';
+import BaseURL from './utils/enums'
 
 export default {
   ssr: false,
@@ -24,6 +25,7 @@ export default {
   ],
   plugins: [
     { src: '@plugins/main.js' },
+    { src: '@plugins/axios.js' },
     { src: '@plugins/injectComponents.js' },
     { src: '@plugins/vee-validate.js' },
     { src: '@plugins/clipboard.js' },
@@ -44,6 +46,7 @@ export default {
     middleware: ['router'],
   },
   modules: [
+    '@nuxtjs/axios',
     '@nuxtjs/style-resources',
     '@nuxtjs/i18n',
     'bootstrap-vue/nuxt',
@@ -63,6 +66,9 @@ export default {
       compact: false,
     },
     postcss: null,
+  },
+  axios: {
+    baseURL: process.env.API
   },
   moment: {
     defaultLocale: 'ru',

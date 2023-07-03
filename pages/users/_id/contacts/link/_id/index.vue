@@ -2,7 +2,7 @@
   <EditBlock
       :is-have-slot="true"
       :is-show-btn="false"
-      title="Добавить ссылку">
+      :title="$tc('buttons.addLink')">
     <div class="link__types">
       <div
         v-for="(link, key) in links"
@@ -30,7 +30,7 @@
       :max-value="50"
       :is-hide-error="true"/>
     <div class="link__checkbox-block">
-      <span class="link__text">Активировать ссылку</span>
+      <span class="link__text">{{ $tc('contacts.activatedLink') }}</span>
       <input
         id="custom-checkbox"
         class="link__checkbox"
@@ -50,7 +50,7 @@ export default {
   data() {
     return {
       firstInput: '',
-      firstLabel: 'Ссылка сайта',
+      firstLabel: this.$t('contacts.website'),
       secondInput: '',
       secondLabel: '',
       chosenLink: 0,
@@ -84,19 +84,19 @@ export default {
       let label = '';
       switch(key) {
         case 0: {
-          label = 'Ссылка сайта';
+          label = this.$t('contacts.linkTypes.website');
           break;
         }
         case 1: {
-          label = 'Email';
+          label = this.$t('contacts.linkTypes.mail');
           break;
         }
         case 2: {
-          label = 'Номер телефона';
+          label = this.$t('contacts.linkTypes.email');
           break;
         }
         case 3: {
-          label = 'Номер телефона';
+          label = this.$t('contacts.linkTypes.email');
           break;
         }
       }

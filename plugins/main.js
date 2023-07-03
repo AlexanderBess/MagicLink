@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import moment from 'moment';
 import VueTippy, { TippyComponent } from 'vue-tippy';
+import { Path } from '~/utils/enums';
 // import heic2any from 'heic2any';
 // import modals from '~/store/modals/modals';
 // import { images } from '~/utils/images';

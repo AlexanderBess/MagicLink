@@ -7,19 +7,14 @@ export default async function ({
     try {
         const access = app.$cookies.get('access');
         const refresh = app.$cookies.get('refresh');
-        const userStatus = app.$cookies.get('userStatus');
-        const social = app.$cookies.get('socialNetwork');
         const payload = {
             access,
-            refresh,
-            userStatus,
-            social,
+            refresh
         };
-
         if (access || refresh) {
             store.commit('user/setTokens', payload);
         }
-        if (!access || !app.$cookies.get('userLogin')) {
+        if (!access) {
             await store.dispatch('user/logout', false);
             return redirect(Path.SIGN_IN);
         }

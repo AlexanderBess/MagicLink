@@ -1,3 +1,3 @@
 export default {
-    getContactsData: (state) => state.contactsData
+    getLinks: (state) => state.links
 }

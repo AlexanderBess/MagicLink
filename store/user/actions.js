@@ -19,7 +19,8 @@ export default {
     async refreshTokens({ commit, state }) {
         try {
             const refreshTokenFromCookie = this.$cookies.get('refresh');
-            const { result } = await this.$axios.$post('user/auth/refresh-access-token', String(state.tokens.refresh) || String(refreshTokenFromCookie));
+            const token = state.tokens.refresh ? `${state.tokens.refresh}` : `${refreshTokenFromCookie}`;
+            const { result } = await this.$axios.$post('user/auth/refresh-access-token', token);
 
             commit('setTokens', result);
             return true;
@@ -31,11 +32,40 @@ export default {
     async getMyData({commit}) {
         try {
             const result = await this.$axios.$get('me/profile');
+            commit('setMyData', result);
+            return result
+        }
+        catch (e) {
+            return false;
+        }
+    },
+    async setMyData({commit, state}, payload) {
+        const myOldData = JSON.parse(JSON.stringify(state.myData));
+        const myNewData = Object.assign(myOldData, payload);
+        try {
+            const result = await this.$axios.$post('me/profile/edit', myNewData);
 
             commit('setMyData', result);
             return result
         }
         catch (e) {
+            commit('setError', e.message);
+            console.error(e);
+            return false;
+        }
+    },
+    async setViewColors({commit, state}, payload) {
+        const myOldData = JSON.parse(JSON.stringify(state.myData.view.colors));
+        const myNewData = Object.assign(myOldData, payload);
+        try {
+            const result = await this.$axios.$post('me/profile/view/edit', myNewData);
+
+            commit('setMyViewData', result);
+            return result
+        }
+        catch (e) {
+            commit('setError', e.message);
+            console.error(e);
             return false;
         }
     }

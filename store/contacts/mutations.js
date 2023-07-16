@@ -1,8 +1,5 @@
 export default {
-    setGroupName(state, value) {
-        state.contactsData.push({
-            name: value,
-            links: []
-        })
+    setLinks(state, value) {
+        state.links = value;
     }
 }

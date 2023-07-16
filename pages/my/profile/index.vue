@@ -107,7 +107,9 @@ export default {
     }
   },
   async mounted() {
+    if (!this.myData.name) {
       await this.$store.dispatch('user/getMyData');
+    }
     this.userData = JSON.parse(JSON.stringify(this.myData));
     this.profileBlocks[0].data.value = this.userData.name;
     this.profileBlocks[1].data.value = this.userData.description.value || this.$t('profile.emptyDescription');

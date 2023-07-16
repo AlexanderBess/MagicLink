@@ -15,7 +15,8 @@
       class="edit-block__firstInput"
       :label="label"
       :max-value="maxValue ? maxValue : null"
-      :isHideError="true"/>
+      :isHideError="isHideError"
+      :errorText="errorText"/>
     <div
       v-if="checkboxLabel"
       class="edit-block__checkbox-block">
@@ -23,7 +24,9 @@
       <input
           id="input-checkbox"
           class="checkbox-block__checkbox"
-          type="checkbox"/>
+          type="checkbox"
+          :checked="checkBoxData"
+          @change="changeCheckbox"/>
       <label class="checkbox-block__label" for="input-checkbox"></label>
     </div>
     <base-btn
@@ -36,11 +39,14 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex";
+
 export default {
   name: "editBlock",
   data() {
     return {
-      inputData: ''
+      inputData: '',
+      checkBoxData: false
     }
   },
   props: {
@@ -55,6 +61,10 @@ export default {
     value: {
       type: String,
       default: ''
+    },
+    checkBoxValue: {
+      type: Boolean,
+      default: false
     },
     maxValue: {
       type: Number,
@@ -75,6 +85,23 @@ export default {
     isShowBtn: {
       type: Boolean,
       default: true
+    },
+    isHideError: {
+      type: Boolean,
+      default: true
+    }
+  },
+  computed: {
+    ...mapGetters({
+      errorText: "user/errorNotification"
+    })
+  },
+  mounted() {
+    if(this.value) {
+      this.inputData = this.value;
+    }
+    if (this.checkBoxValue) {
+      this.checkBoxData = this.checkBoxValue;
     }
   },
   methods: {
@@ -82,7 +109,13 @@ export default {
       this.$router.go(-1);
     },
     buttonClick() {
-      this.$emit('click', this.inputData);
+      const data = {}
+      if (this.label) { data.inputData = this.inputData }
+      if (this.checkboxLabel) { data.checkBoxData = this.checkBoxData }
+      this.$emit('click', data);
+    },
+    changeCheckbox() {
+      this.checkBoxData = !this.checkBoxData;
     }
   }
 }

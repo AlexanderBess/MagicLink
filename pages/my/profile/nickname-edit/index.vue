@@ -22,7 +22,7 @@ export default {
     async changeValue(value) {
       const result = await this.$store.dispatch('user/setMyData', { alias: value.inputData });
       if (result) {
-        await this.$router.push(`/users/${result.alias}/profile`);
+        await this.$router.push(`my/profile`);
       }
     }
   }

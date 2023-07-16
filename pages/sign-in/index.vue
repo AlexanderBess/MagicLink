@@ -58,7 +58,7 @@ export default {
         }
       });
       if (response) {
-        await this.$router.push(`/users/${this.myData.alias}/${Path.PROFILE}`);
+        await this.$router.push(Path.PROFILE);
       } else {
         console.log('bad login data')
       }

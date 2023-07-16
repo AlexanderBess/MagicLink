@@ -54,6 +54,7 @@ export default {
     position: absolute;
     display: flex;
     flex-direction: column;
+    width: fit-content;
     gap: 8px;
   }
   &__img {

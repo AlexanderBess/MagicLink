@@ -89,7 +89,7 @@
       v-if="!isHideError"
       class="ctm-field__err"
     >
-      {{ errors[0] }}
+      {{ errorText || errors[0] }}
     </div>
   </ValidationProvider>
 </template>
@@ -186,6 +186,10 @@ export default {
     maxValue: {
       type: Number,
       default: null
+    },
+    errorText: {
+      type: String,
+      default: ''
     }
   },
   computed: {

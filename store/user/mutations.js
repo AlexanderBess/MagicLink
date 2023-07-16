@@ -15,6 +15,12 @@ export default {
     setMyData(state, payload) {
         state.myData = payload;
     },
+    setMyViewData(state, payload) {
+        state.myData.view = payload;
+    },
+    setError(state, payload) {
+        state.errorNotification = payload;
+    },
     logOut(state) {
         this.$cookies.remove('access');
         this.$cookies.remove('refresh');

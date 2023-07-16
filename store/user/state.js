@@ -3,5 +3,17 @@ export default () => ({
         access: null,
         refresh: null,
     },
-    myData: {}
+    myData: {
+        id: '',
+        name: '',
+        alias: '',
+        activation: true,
+        description: {
+            display: true,
+            value: ''
+        },
+        view: {},
+        groupLinks: {}
+    },
+    errorNotification: ''
 })

@@ -1,6 +1,7 @@
 {
   "general": {
-    "yes": "Yes"
+    "yes": "Yes",
+    "loading": "Loading..."
   },
   "footer": {
     "documentation": "Documentation"

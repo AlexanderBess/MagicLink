@@ -7,7 +7,11 @@
       <img src="~/assets/img/app/emptyAvatar.svg" alt="empty avatar"/>
     </div>
     <div class="user__text-info">
-      <span v-if="userName" class="user__name">{{ userName }}</span>
+      <span
+          v-if="userName"
+          :style="specialStyle ? `color: ${specialStyle}` : ''"
+          class="user__name">
+        {{ userName }}</span>
       <span v-if="link" class="user__link">{{ link }}</span>
     </div>
   </div>
@@ -26,6 +30,10 @@ export default {
       default: ''
     },
     link: {
+      type: String,
+      default: ''
+    },
+    specialStyle: {
       type: String,
       default: ''
     }

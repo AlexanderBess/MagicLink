@@ -15,7 +15,9 @@
   "signUpOrIn": {
     "haveAccount": "У вас уже есть аккаунт ?",
     "userName": "Имя профиля",
-    "linkToProfile": "Ссылка на профиль",
+    "alias": "Ссылка на профиль",
+    "enterCode": "Введите код подтверждения",
+    "code": "Код",
     "auth": "Авторизация",
     "email": "Email",
     "password": "Пароль",
